@@ -66,6 +66,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Change this to your frontend's URL later
     "http://127.0.0.1:3000",
+    "https://naveengaikoti.vercel.app",
 ]
 
 FRONTEND_URL = os.environ.get("FRONTEND_URL")
