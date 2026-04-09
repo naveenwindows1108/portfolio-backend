@@ -21,7 +21,7 @@ class ProjectImageSerializer(serializers.ModelSerializer):
 
 
 class ProjectSerializer(serializers.ModelSerializer):
-    # Nested serializers to pull in images and tag/tech names automatically
+
     images = ProjectImageSerializer(many=True, read_only=True)
     technologies = serializers.StringRelatedField(many=True)
     tags = serializers.StringRelatedField(many=True)
@@ -46,4 +46,3 @@ class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
         fields = ["name", "email", "subject", "message"]
-        # We don't include 'is_read' because the user shouldn't set that via API

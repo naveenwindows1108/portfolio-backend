@@ -24,7 +24,6 @@ class TagAdmin(admin.ModelAdmin):
     search_fields = ("name",)
 
 
-# This allows you to upload multiple images directly from the Project creation page
 class ProjectImageInline(admin.TabularInline):
     model = ProjectImage
     extra = 1
@@ -36,10 +35,8 @@ class ProjectAdmin(admin.ModelAdmin):
     list_filter = ("status", "is_featured", "is_active", "technologies")
     search_fields = ("title", "description")
 
-    # Pre-populate the slug from the title as you type
     prepopulated_fields = {"slug": ("title",)}
 
-    # Use searchable dropdowns for ManyToMany fields (much cleaner UI)
     autocomplete_fields = ["technologies", "tags"]
 
     inlines = [ProjectImageInline]
@@ -56,4 +53,4 @@ class ContactAdmin(admin.ModelAdmin):
         "subject",
         "message",
         "created_at",
-    )  # Protect contact records
+    )
